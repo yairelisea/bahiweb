@@ -1,0 +1,54 @@
+/* Tipografía personalizada */
+body { font-family: 'Roboto', sans-serif; }
+h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
+
+/* Colores de la marca basados en el PDF [cite: 903] */
+:root {
+    --color-primario: #1e293b; /* Azul Oscuro/Grisáceo */
+    --color-secundario: #00bfa5; /* Turquesa/Verde del logo */
+    --color-acento: #fbbf24; /* Amarillo de detalles en PDF */
+    --color-acento-hover: #f59e0b; /* Amarillo más oscuro para hover */
+}
+.bg-primario { background-color: var(--color-primario); }
+.bg-secundario { background-color: var(--color-secundario); }
+.bg-acento { background-color: var(--color-acento); }
+.hover\:bg-acento-hover:hover { background-color: var(--color-acento-hover); }
+
+.text-primario { color: var(--color-primario); }
+.text-secundario { color: var(--color-secundario); }
+.text-acento { color: var(--color-acento); }
+
+/* Estilo para los filtros de la galería */
+.filter-btn { transition: all 0.3s ease; }
+.filter-btn.active {
+    background-color: var(--color-acento);
+    color: var(--color-primario);
+    border-color: var(--color-acento);
+}
+.filter-btn:not(.active):hover {
+    background-color: var(--color-acento);
+    color: var(--color-primario);
+    border-color: var(--color-acento);
+}
+
+/* Animaciones de galería */
+.gallery-item { display: none; animation: fadeIn 0.5s ease; }
+.gallery-item.show { display: block; }
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Modal */
+.modal { display: none; animation: fadeIn 0.3s ease; }
+.modal.open { display: flex; }
+.modal-content { animation: zoomIn 0.3s ease; }
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Overlay */
+.gallery-overlay { opacity: 0; transition: opacity 0.3s ease; }
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+html { scroll-behavior: smooth; }

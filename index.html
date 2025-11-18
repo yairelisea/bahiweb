@@ -8,52 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        /* Tipografía personalizada */
-        body { font-family: 'Roboto', sans-serif; }
-        h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
-        
-        [cite_start]/* Colores de la marca basados en el PDF [cite: 903] */
-        :root {
-            --color-primario: #1e293b; /* Azul Oscuro/Grisáceo */
-            --color-secundario: #00bfa5; /* Turquesa/Verde del logo */
-            --color-acento: #fbbf24; /* Amarillo de detalles en PDF */
-        }
-        .bg-primario { background-color: var(--color-primario); }
-        .bg-secundario { background-color: var(--color-secundario); }
-        .text-primario { color: var(--color-primario); }
-        .text-secundario { color: var(--color-secundario); }
-        
-        /* Estilo para los filtros de la galería */
-        .filter-btn { transition: all 0.3s ease; }
-        .filter-btn.active {
-            background-color: var(--color-primario);
-            color: white;
-        }
-        .filter-btn:not(.active):hover { background-color: #f3f4f6; }
-
-        /* Animaciones de galería */
-        .gallery-item { display: none; animation: fadeIn 0.5s ease; }
-        .gallery-item.show { display: block; }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
-        }
-        
-        /* Modal */
-        .modal { display: none; animation: fadeIn 0.3s ease; }
-        .modal.open { display: flex; }
-        .modal-content { animation: zoomIn 0.3s ease; }
-        @keyframes zoomIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
-        }
-        
-        /* Overlay */
-        .gallery-overlay { opacity: 0; transition: opacity 0.3s ease; }
-        .gallery-item:hover .gallery-overlay { opacity: 1; }
-        html { scroll-behavior: smooth; }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="text-gray-800">
 
@@ -69,7 +24,7 @@
                 <li><a href="#nosotros" class="text-gray-600 hover:text-secundario font-medium">Nosotros</a></li>
                 <li><a href="#servicios" class="text-gray-600 hover:text-secundario font-medium">Servicios</a></li>
                 <li><a href="#proyectos" class="text-gray-600 hover:text-secundario font-medium">Proyectos</a></li>
-                <li><a href="#contacto" class="bg-primario text-white px-4 py-2 rounded hover:bg-gray-700 transition duration-300">Contacto</a></li>
+                <li><a href="#contacto" class="bg-acento text-primario font-semibold px-4 py-2 rounded hover:bg-acento-hover transition duration-300">Contacto</a></li>
             </ul>
         </nav>
     </header>
@@ -83,7 +38,7 @@
             <p class="text-xl text-gray-200 mb-8 max-w-3xl mx-auto">
                 Empresa mexicana dedicada a la construcción privada, industrial, comercial, residencial e interés social.
             </p>
-            <a href="#proyectos" class="bg-secundario text-white text-lg font-semibold px-8 py-3 rounded hover:bg-teal-600 transition duration-300">Ver Portafolio</a>
+            <a href="#proyectos" class="bg-acento text-primario text-lg font-semibold px-8 py-3 rounded hover:bg-acento-hover transition duration-300">Ver Portafolio</a>
         </div>
     </section>
 
@@ -129,7 +84,7 @@
                 [cite_start]<p class="text-gray-600 mb-6">Contamos con una variedad de servicios especializados en la industria de la construcción[cite: 927].</p>
                 
                 <div class="grid grid-cols-1 gap-4">
-                    <div class="bg-white p-4 shadow rounded-l-4 border-l-4 border-secundario">
+                    <div class="bg-white p-4 shadow rounded-lg border-l-4 border-secundario">
                         <h3 class="text-xl font-bold text-primario mb-2">Obra Civil</h3>
                         <ul class="list-disc list-inside text-gray-600 text-sm">
                             <li>Cimentaciones y Pisos de Concreto</li>
@@ -138,7 +93,7 @@
                             <li>Albañilerías</li>
                         </ul>
                     </div>
-                    <div class="bg-white p-4 shadow rounded-l-4 border-l-4 border-primario">
+                    <div class="bg-white p-4 shadow rounded-lg border-l-4 border-secundario">
                         <h3 class="text-xl font-bold text-primario mb-2">Edificación y Remodelación</h3>
                         <ul class="list-disc list-inside text-gray-600 text-sm grid grid-cols-2">
                             <li>Naves industriales</li>
@@ -162,7 +117,7 @@
             <p class="text-center text-lg text-gray-600 mb-12">Experiencia comprobada en desarrollos verticales, industriales y comerciales.</p>
 
             <div id="filter-buttons" class="flex flex-wrap justify-center gap-4 mb-12">
-                <button class="filter-btn active px-6 py-2 rounded-full font-medium border border-gray-300" onclick="filterGallery('all')">Todos</button>
+                <button class="filter-btn active px-6 py-2 rounded-full font-semibold border border-gray-300" onclick="filterGallery('all')">Todos</button>
                 <button class="filter-btn px-6 py-2 rounded-full font-medium border border-gray-300" onclick="filterGallery('vertical')">Vertical / Residencial</button>
                 <button class="filter-btn px-6 py-2 rounded-full font-medium border border-gray-300" onclick="filterGallery('industrial')">Industrial / Comercial</button>
                 <button class="filter-btn px-6 py-2 rounded-full font-medium border border-gray-300" onclick="filterGallery('interiores')">Interiores / Corporativo</button>
@@ -282,17 +237,17 @@
                 <form action="#" method="POST">
                     <div class="mb-4">
                         <label class="block font-medium mb-2">Nombre</label>
-                        <input type="text" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-secundario">
+                        <input type="text" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-acento focus:border-acento">
                     </div>
                     <div class="mb-4">
                         <label class="block font-medium mb-2">Correo</label>
-                        <input type="email" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-secundario">
+                        <input type="email" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-acento focus:border-acento">
                     </div>
                     <div class="mb-4">
                         <label class="block font-medium mb-2">Mensaje</label>
-                        <textarea rows="4" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-secundario"></textarea>
+                        <textarea rows="4" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-acento focus:border-acento"></textarea>
                     </div>
-                    <button type="submit" class="w-full bg-secundario text-white font-bold py-3 rounded hover:bg-teal-600 transition">Enviar Mensaje</button>
+                    <button type="submit" class="w-full bg-acento text-primario font-bold py-3 rounded hover:bg-acento-hover transition">Enviar Mensaje</button>
                 </form>
             </div>
         </div>
