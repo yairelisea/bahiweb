@@ -3,280 +3,246 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BAHI Construcciones</title>
-    <!-- Tailwind CSS -->
+    <title>BAHI Construcción - Innovación y Calidad</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Montserrat (Títulos) y Roboto (Texto) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
         /* Tipografía personalizada */
-        body {
-            font-family: 'Roboto', sans-serif;
-        }
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Montserrat', sans-serif;
-        }
+        body { font-family: 'Roboto', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
         
-        /* Colores de la marca (basados en el logo) */
+        [cite_start]/* Colores de la marca basados en el PDF [cite: 903] */
         :root {
-            --color-primario: #0d2a4f; /* Azul Marino Fuerte */
-            --color-secundario: #f39c12; /* Naranja */
+            --color-primario: #1e293b; /* Azul Oscuro/Grisáceo */
+            --color-secundario: #00bfa5; /* Turquesa/Verde del logo */
+            --color-acento: #fbbf24; /* Amarillo de detalles en PDF */
         }
         .bg-primario { background-color: var(--color-primario); }
         .bg-secundario { background-color: var(--color-secundario); }
         .text-primario { color: var(--color-primario); }
         .text-secundario { color: var(--color-secundario); }
-        .border-secundario { border-color: var(--color-secundario); }
-
+        
         /* Estilo para los filtros de la galería */
-        .filter-btn {
-            transition: all 0.3s ease;
-        }
+        .filter-btn { transition: all 0.3s ease; }
         .filter-btn.active {
             background-color: var(--color-primario);
             color: white;
         }
-        .filter-btn:not(.active):hover {
-            background-color: #f3f4f6;
-        }
+        .filter-btn:not(.active):hover { background-color: #f3f4f6; }
 
-        /* Ocultar elementos de la galería por defecto */
-        .gallery-item {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-        /* Mostrar elementos con la clase 'show' */
-        .gallery-item.show {
-            display: block;
-        }
+        /* Animaciones de galería */
+        .gallery-item { display: none; animation: fadeIn 0.5s ease; }
+        .gallery-item.show { display: block; }
         @keyframes fadeIn {
             from { opacity: 0; transform: scale(0.95); }
             to { opacity: 1; transform: scale(1); }
         }
         
-        /* Estilos del Modal (Lightbox) */
-        .modal {
-            display: none; /* Oculto por defecto */
-            animation: fadeIn 0.3s ease;
-        }
-        .modal.open {
-            display: flex;
-        }
-        .modal-content {
-            animation: zoomIn 0.3s ease;
-        }
+        /* Modal */
+        .modal { display: none; animation: fadeIn 0.3s ease; }
+        .modal.open { display: flex; }
+        .modal-content { animation: zoomIn 0.3s ease; }
         @keyframes zoomIn {
             from { opacity: 0; transform: scale(0.9); }
             to { opacity: 1; transform: scale(1); }
         }
         
-        /* Efecto de overlay en la galería */
-        .gallery-overlay {
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-
-        /* Scroll suave */
-        html {
-            scroll-behavior: smooth;
-        }
+        /* Overlay */
+        .gallery-overlay { opacity: 0; transition: opacity 0.3s ease; }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+        html { scroll-behavior: smooth; }
     </style>
 </head>
 <body class="text-gray-800">
 
-    <!-- Header y Navegación -->
     <header class="bg-white shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- Logo (Texto) -->
-            <a href="#" class="text-2xl font-bold text-primario">
-                BAHI <span class="text-secundario">CONSTRUCCIONES</span>
+            <a href="#" class="text-2xl font-bold text-primario flex flex-col leading-none">
+                <span>BAHI</span>
+                <span class="text-sm text-secundario tracking-widest">CONSTRUCCIÓN</span>
             </a>
             
-            <!-- Menú -->
-            <ul class="flex space-x-6">
-                <li><a href="#inicio" class="text-gray-600 hover:text-primario font-medium">Inicio</a></li>
-                <li><a href="#valores" class="text-gray-600 hover:text-primario font-medium">Valores</a></li>
-                <li><a href="#experiencia" class="text-gray-600 hover:text-primario font-medium">Experiencia</a></li>
-                <li><a href="#proyectos" class="text-gray-600 hover:text-primario font-medium">Proyectos</a></li>
-                <li><a href="#contacto" class="bg-secundario text-white px-4 py-2 rounded-full hover:bg-orange-600 transition duration-300">Contacto</a></li>
+            <ul class="flex space-x-6 hidden md:flex">
+                <li><a href="#inicio" class="text-gray-600 hover:text-secundario font-medium">Inicio</a></li>
+                <li><a href="#nosotros" class="text-gray-600 hover:text-secundario font-medium">Nosotros</a></li>
+                <li><a href="#servicios" class="text-gray-600 hover:text-secundario font-medium">Servicios</a></li>
+                <li><a href="#proyectos" class="text-gray-600 hover:text-secundario font-medium">Proyectos</a></li>
+                <li><a href="#contacto" class="bg-primario text-white px-4 py-2 rounded hover:bg-gray-700 transition duration-300">Contacto</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Sección Hero (Inicio) -->
-    <section id="inicio" class="h-screen bg-cover bg-center flex items-center" style="background-image: url('https://placehold.co/1920x1080/0d2a4f/f39c12?text=MMR+Construcciones');">
-        <!-- Overlay oscuro para legibilidad -->
-        <div class="absolute inset-0 bg-black opacity-50"></div>
-        
+    <section id="inicio" class="h-screen bg-cover bg-center flex items-center relative" style="background-image: url('https://placehold.co/1920x1080/1e293b/00bfa5?text=BAHI+Construccion');">
+        <div class="absolute inset-0 bg-black opacity-60"></div>
         <div class="container mx-auto px-6 text-center z-10 relative">
-            <h1 class="text-5xl md:text-7xl text-white font-bold mb-4 leading-tight">Ingeniería que Conecta. <br> Estructuras que Perduran.</h1>
-            <p class="text-xl text-gray-200 mb-8">Especialistas en Obra Marítima, Civil e Industrial con flota propia.</p>
-            <a href="#proyectos" class="bg-secundario text-white text-lg font-semibold px-8 py-3 rounded-full hover:bg-orange-600 transition duration-300">Ver Proyectos</a>
+            <h1 class="text-5xl md:text-7xl text-white font-bold mb-6 leading-tight">
+                LOGRAMOS QUE TUS IDEAS <br><span class="text-secundario">SE CONSTRUYAN</span>
+            </h1>
+            <p class="text-xl text-gray-200 mb-8 max-w-3xl mx-auto">
+                Empresa mexicana dedicada a la construcción privada, industrial, comercial, residencial e interés social.
+            </p>
+            <a href="#proyectos" class="bg-secundario text-white text-lg font-semibold px-8 py-3 rounded hover:bg-teal-600 transition duration-300">Ver Portafolio</a>
         </div>
     </section>
 
-    <!-- Sección Valores -->
-    <section id="valores" class="py-20 bg-gray-50">
+    <section id="nosotros" class="py-20 bg-white">
         <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center text-primario mb-4">Nuestros Valores</h2>
-            <p class="text-center text-lg text-gray-600 mb-12 max-w-2xl mx-auto">Los cimientos de nuestro trabajo diario y la garantía de nuestros resultados.</p>
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primario mb-4">Nuestra Esencia</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Nos apasionamos por ofrecer un servicio de calidad para la industria de la construcción.
+                </p>
+            </div>
             
-            <div class="grid md:grid-cols-3 gap-12">
-                <!-- Valor 1: Calidad y Precisión -->
-                <div class="text-center p-6 bg-white rounded-lg shadow-lg">
-                    <div class="text-5xl text-secundario mb-4">
-                        <!-- Icono SVG para Calidad -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-semibold text-primario mb-2">Calidad y Precisión</h3>
-                    <p class="text-gray-600">Nos adherimos a los más altos estándares y especificaciones técnicas. Cada proyecto es ejecutado con precisión, garantizando la calidad a través de actas de aceptación y la satisfacción de nuestros clientes.</p>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
+                <div class="p-4 border border-gray-200 rounded hover:shadow-lg transition">
+                    <div class="text-4xl mb-2">🤝</div>
+                    <h3 class="font-bold text-primario">Compromiso</h3>
                 </div>
-                
-                <!-- Valor 2: Seguridad y Confiabilidad -->
-                <div class="text-center p-6 bg-white rounded-lg shadow-lg">
-                    <div class="text-5xl text-secundario mb-4">
-                        <!-- Icono SVG para Seguridad -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-semibold text-primario mb-2">Seguridad y Confiabilidad</h3>
-                    <p class="text-gray-600">La seguridad de nuestro personal y la integridad de las estructuras son nuestra prioridad. Somos un socio confiable para proyectos de alto riesgo, incluyendo obra marítima y trabajos submarinos.</p>
+                <div class="p-4 border border-gray-200 rounded hover:shadow-lg transition">
+                    <div class="text-4xl mb-2">👥</div>
+                    <h3 class="font-bold text-primario">Trabajo en Equipo</h3>
                 </div>
-
-                <!-- Valor 3: Experiencia y Eficiencia -->
-                <div class="text-center p-6 bg-white rounded-lg shadow-lg">
-                    <div class="text-5xl text-secundario mb-4">
-                        <!-- Icono SVG para Eficiencia (Grúa) -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-semibold text-primario mb-2">Experiencia y Eficiencia</h3>
-                    <p class="text-gray-600">Nuestra vasta experiencia y nuestra flota de maquinaria pesada (dragas y grúas propias) nos permiten optimizar tiempos y recursos, ofreciendo una eficiencia que se traduce en valor para el cliente.</p>
+                <div class="p-4 border border-gray-200 rounded hover:shadow-lg transition">
+                    <div class="text-4xl mb-2">🛡️</div>
+                    <h3 class="font-bold text-primario">Seguridad</h3>
+                </div>
+                <div class="p-4 border border-gray-200 rounded hover:shadow-lg transition">
+                    <div class="text-4xl mb-2">⚖️</div>
+                    <h3 class="font-bold text-primario">Honestidad</h3>
+                </div>
+                <div class="p-4 border border-gray-200 rounded hover:shadow-lg transition">
+                    <div class="text-4xl mb-2">⏱️</div>
+                    <h3 class="font-bold text-primario">Puntualidad</h3>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sección Experiencia -->
-    <section id="experiencia" class="py-20 bg-white">
+    <section id="servicios" class="py-20 bg-gray-50">
         <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-            <!-- Columna de Texto -->
             <div>
-                <span class="text-secundario font-semibold">NUESTRA CAPACIDAD</span>
-                <h2 class="text-4xl font-bold text-primario mt-2 mb-6">Expertos en Proyectos de Alta Complejidad</h2>
-                <p class="text-lg text-gray-600 mb-6">Con décadas en el sector, MMR Construcciones se especializa en las áreas más demandantes de la ingeniería. Contamos con personal calificado para cada disciplina, desde buceo profesional hasta pilotaje de precisión.</p>
-                <div class="space-y-4">
-                    <div class="flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-secundario mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-                        <span class="text-lg">Obra Marítima y Portuaria</span>
+                <span class="text-secundario font-bold tracking-widest">SERVICIOS</span>
+                <h2 class="text-4xl font-bold text-primario mt-2 mb-6">Soluciones Integrales</h2>
+                [cite_start]<p class="text-gray-600 mb-6">Contamos con una variedad de servicios especializados en la industria de la construcción[cite: 927].</p>
+                
+                <div class="grid grid-cols-1 gap-4">
+                    <div class="bg-white p-4 shadow rounded-l-4 border-l-4 border-secundario">
+                        <h3 class="text-xl font-bold text-primario mb-2">Obra Civil</h3>
+                        <ul class="list-disc list-inside text-gray-600 text-sm">
+                            <li>Cimentaciones y Pisos de Concreto</li>
+                            <li>Estructuras de acero y concreto</li>
+                            <li>Cubiertas (concreto, metálicas, vidrio, madera)</li>
+                            <li>Albañilerías</li>
+                        </ul>
                     </div>
-                    <div class="flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-secundario mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-                        <span class="text-lg">Dragado por Succión y Almeja</span>
-                    </div>
-                    <div class="flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-secundario mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-                        <span class="text-lg">Hincado de Pilotes y Tablestacado</span>
-                    </div>
-                    <div class="flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-secundario mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-                        <span class="text-lg">Obra Civil e Industrial (Plantas y Naves)</span>
-                    </div>
-                    <div class="flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-secundario mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-                        <span class="text-lg">Mantenimiento de Puentes y Estructuras</span>
+                    <div class="bg-white p-4 shadow rounded-l-4 border-l-4 border-primario">
+                        <h3 class="text-xl font-bold text-primario mb-2">Edificación y Remodelación</h3>
+                        <ul class="list-disc list-inside text-gray-600 text-sm grid grid-cols-2">
+                            <li>Naves industriales</li>
+                            <li>Plazas comerciales</li>
+                            <li>Oficinas y Urbanizaciones</li>
+                            <li>Residencial y Acabados</li>
+                            <li>Estacionamientos</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <!-- Columna de Imagen -->
-            <div class="rounded-lg overflow-hidden shadow-2xl">
-                <img src="https://placehold.co/600x500/0d2a4f/ffffff?text=Equipo+Especializado" alt="Maquinaria de MMR Construcciones" class="w-full h-full object-cover">
+            <div class="rounded-lg overflow-hidden shadow-2xl h-full">
+                <img src="https://placehold.co/600x700/fbbf24/1e293b?text=Obra+Civil+y+Estructura" alt="Construcción en Proceso" class="w-full h-full object-cover">
             </div>
         </div>
     </section>
 
-    <!-- Sección Galería de Proyectos -->
-    <section id="proyectos" class="py-20 bg-gray-100">
+    <section id="proyectos" class="py-20 bg-white">
         <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center text-primario mb-4">Portafolio de Proyectos</h2>
-            <p class="text-center text-lg text-gray-600 mb-12 max-w-2xl mx-auto">Nuestra experiencia probada en campo. Proyectos entregados a clientes líderes en la industria.</p>
+            <h2 class="text-4xl font-bold text-center text-primario mb-4">Nuestros Proyectos</h2>
+            <p class="text-center text-lg text-gray-600 mb-12">Experiencia comprobada en desarrollos verticales, industriales y comerciales.</p>
 
-            <!-- Filtros de la Galería -->
-            <div id="filter-buttons" class="flex justify-center space-x-2 md:space-x-4 mb-12">
-                <button class="filter-btn active px-4 py-2 md:px-6 md:py-2 rounded-full font-medium" onclick="filterGallery('all')">Todos</button>
-                <button class="filter-btn px-4 py-2 md:px-6 md:py-2 rounded-full font-medium" onclick="filterGallery('maritima')">Obra Marítima</button>
-                <button class="filter-btn px-4 py-2 md:px-6 md:py-2 rounded-full font-medium" onclick="filterGallery('civil')">Obra Civil</button>
-                <button class="filter-btn px-4 py-2 md:px-6 md:py-2 rounded-full font-medium" onclick="filterGallery('puentes')">Puentes</button>
+            <div id="filter-buttons" class="flex flex-wrap justify-center gap-4 mb-12">
+                <button class="filter-btn active px-6 py-2 rounded-full font-medium border border-gray-300" onclick="filterGallery('all')">Todos</button>
+                <button class="filter-btn px-6 py-2 rounded-full font-medium border border-gray-300" onclick="filterGallery('vertical')">Vertical / Residencial</button>
+                <button class="filter-btn px-6 py-2 rounded-full font-medium border border-gray-300" onclick="filterGallery('industrial')">Industrial / Comercial</button>
+                <button class="filter-btn px-6 py-2 rounded-full font-medium border border-gray-300" onclick="filterGallery('interiores')">Interiores / Corporativo</button>
             </div>
 
-            <!-- Contenedor de la Galería -->
             <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                <!-- Proyecto 1 (Marítima) -->
-                <div class="gallery-item" data-category="maritima">
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden relative group cursor-pointer" onclick="openModal('https://placehold.co/800x600/34495e/ffffff?text=Dragado+COMMSA', 'Dragado de Muelles (COMMSA)')">
-                        <img src="https://placehold.co/600x400/34495e/ffffff?text=Dragado+COMMSA" alt="Dragado de Muelles" class="w-full h-64 object-cover">
-                        <div class="gallery-overlay absolute inset-0 bg-primario bg-opacity-80 flex items-center justify-center p-4">
-                            <h3 class="text-2xl text-white font-semibold text-center">Dragado de Muelles (COMMSA)</h3>
+                <div class="gallery-item" data-category="vertical">
+                    <div class="bg-gray-100 rounded-lg overflow-hidden relative group cursor-pointer" onclick="openModal('https://placehold.co/800x600/1e293b/ffffff?text=Torre+Kyo+Constella', 'Torre Kyo Constella - Tablarroca y Acabados')">
+                        <img src="https://placehold.co/600x400/1e293b/ffffff?text=Torre+Kyo+Constella" alt="Torre Kyo" class="w-full h-64 object-cover">
+                        <div class="gallery-overlay absolute inset-0 bg-primario bg-opacity-90 flex flex-col items-center justify-center p-6 text-center">
+                            <h3 class="text-xl text-white font-bold">Torre Kyo Constella</h3>
+                            <p class="text-secundario text-sm mt-2">Tablarroca, Carpintería y Acabados</p>
+                            <p class="text-gray-300 text-xs mt-1">Cliente: Koinox Developers</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Proyecto 2 (Civil) -->
-                <div class="gallery-item" data-category="civil">
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden relative group cursor-pointer" onclick="openModal('https://placehold.co/800x600/e67e22/ffffff?text=Planta+Kaltex', 'Ampliación de Nave (Kaltex Fibers)')">
-                        <img src="https://placehold.co/600x400/e67e22/ffffff?text=Planta+Kaltex" alt="Ampliación de Nave" class="w-full h-64 object-cover">
-                        <div class="gallery-overlay absolute inset-0 bg-primario bg-opacity-80 flex items-center justify-center p-4">
-                            <h3 class="text-2xl text-white font-semibold text-center">Ampliación de Nave (Kaltex Fibers)</h3>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Proyecto 3 (Marítima) -->
-                <div class="gallery-item" data-category="maritima">
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden relative group cursor-pointer" onclick="openModal('https://placehold.co/800x600/3498db/ffffff?text=API+Tampico', 'Dragado Canal de Acceso (API Tampico)')">
-                        <img src="https://placehold.co/600x400/3498db/ffffff?text=API+Tampico" alt="Dragado Canal de Acceso" class="w-full h-64 object-cover">
-                        <div class="gallery-overlay absolute inset-0 bg-primario bg-opacity-80 flex items-center justify-center p-4">
-                            <h3 class="text-2xl text-white font-semibold text-center">Dragado Canal de Acceso (API Tampico)</h3>
+                <div class="gallery-item" data-category="industrial">
+                    <div class="bg-gray-100 rounded-lg overflow-hidden relative group cursor-pointer" onclick="openModal('https://placehold.co/800x600/fbbf24/000000?text=Nave+Garcia', 'Nave Industrial García - Obra Civil')">
+                        <img src="https://placehold.co/600x400/fbbf24/000000?text=Nave+Garcia" alt="Nave García" class="w-full h-64 object-cover">
+                        <div class="gallery-overlay absolute inset-0 bg-primario bg-opacity-90 flex flex-col items-center justify-center p-6 text-center">
+                            <h3 class="text-xl text-white font-bold">Nave Industrial García</h3>
+                            <p class="text-secundario text-sm mt-2">Obra civil, exteriores y acabados</p>
+                            <p class="text-gray-300 text-xs mt-1">Cliente: Robertson Industries</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Proyecto 4 (Puentes) -->
-                <div class="gallery-item" data-category="puentes">
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden relative group cursor-pointer" onclick="openModal('https://placehold.co/800x600/7f8c8d/ffffff?text=Puente+Grupo+R', 'Mantenimiento de Puentes (Grupo R)')">
-                        <img src="https://placehold.co/600x400/7f8c8d/ffffff?text=Puente+Grupo+R" alt="Mantenimiento de Puentes" class="w-full h-64 object-cover">
-                        <div class="gallery-overlay absolute inset-0 bg-primario bg-opacity-80 flex items-center justify-center p-4">
-                            <h3 class="text-2xl text-white font-semibold text-center">Mantenimiento de Puentes (Grupo R)</h3>
+                <div class="gallery-item" data-category="vertical">
+                    <div class="bg-gray-100 rounded-lg overflow-hidden relative group cursor-pointer" onclick="openModal('https://placehold.co/800x600/00bfa5/ffffff?text=Deptos+Aluna', 'Departamentos Aluna - Albañilerías y Acabados')">
+                        <img src="https://placehold.co/600x400/00bfa5/ffffff?text=Deptos+Aluna" alt="Aluna" class="w-full h-64 object-cover">
+                        <div class="gallery-overlay absolute inset-0 bg-primario bg-opacity-90 flex flex-col items-center justify-center p-6 text-center">
+                            <h3 class="text-xl text-white font-bold">Departamentos Aluna</h3>
+                            <p class="text-secundario text-sm mt-2">Albañilerías, plafones y áreas comunes</p>
+                            <p class="text-gray-300 text-xs mt-1">Gerencia Belive</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Proyecto 5 (Marítima) -->
-                <div class="gallery-item" data-category="maritima">
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden relative group cursor-pointer" onclick="openModal('https://placehold.co/800x600/1abc9c/ffffff?text=Muelle+Mezquital', 'Cimentación Muelle (Puerto Mezquital)')">
-                        <img src="https://placehold.co/600x400/1abc9c/ffffff?text=Muelle+Mezquital" alt="Cimentación Muelle" class="w-full h-64 object-cover">
-                        <div class="gallery-overlay absolute inset-0 bg-primario bg-opacity-80 flex items-center justify-center p-4">
-                            <h3 class="text-2xl text-white font-semibold text-center">Cimentación Muelle (Puerto Mezquital)</h3>
+                <div class="gallery-item" data-category="interiores">
+                    <div class="bg-gray-100 rounded-lg overflow-hidden relative group cursor-pointer" onclick="openModal('https://placehold.co/800x600/555/ffffff?text=Torre+Malva', 'Oficinas Torre Malva - 7,500 m2')">
+                        <img src="https://placehold.co/600x400/555/ffffff?text=Torre+Malva" alt="Torre Malva" class="w-full h-64 object-cover">
+                        <div class="gallery-overlay absolute inset-0 bg-primario bg-opacity-90 flex flex-col items-center justify-center p-6 text-center">
+                            <h3 class="text-xl text-white font-bold">Oficinas Torre Malva</h3>
+                            <p class="text-secundario text-sm mt-2">7,500 m² de Obra Civil y Acabados</p>
+                            <p class="text-gray-300 text-xs mt-1">Cliente: GM CAPITAL</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Proyecto 6 (Civil) -->
-                <div class="gallery-item" data-category="civil">
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden relative group cursor-pointer" onclick="openModal('https://placehold.co/800x600/9b59b6/ffffff?text=Unidad+Deportiva', 'Demolición y Cimentación (Unidad Deportiva)')">
-                        <img src="https://placehold.co/600x400/9b59b6/ffffff?text=Unidad+Deportiva" alt="Demolición y Cimentación" class="w-full h-64 object-cover">
-                        <div class="gallery-overlay absolute inset-0 bg-primario bg-opacity-80 flex items-center justify-center p-4">
-                            <h3 class="text-2xl text-white font-semibold text-center">Demolición y Cimentación (Unidad Deportiva)</h3>
+                 <div class="gallery-item" data-category="interiores">
+                    <div class="bg-gray-100 rounded-lg overflow-hidden relative group cursor-pointer" onclick="openModal('https://placehold.co/800x600/333/ffffff?text=Cosmocel', 'Oficinas RH Cosmocel - Interpuerto')">
+                        <img src="https://placehold.co/600x400/333/ffffff?text=Cosmocel" alt="Cosmocel" class="w-full h-64 object-cover">
+                        <div class="gallery-overlay absolute inset-0 bg-primario bg-opacity-90 flex flex-col items-center justify-center p-6 text-center">
+                            <h3 class="text-xl text-white font-bold">Oficinas RH Cosmocel</h3>
+                            <p class="text-secundario text-sm mt-2">Terracerías, cimentación y acabados</p>
+                            <p class="text-gray-300 text-xs mt-1">Interpuerto Monterrey</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="industrial">
+                    <div class="bg-gray-100 rounded-lg overflow-hidden relative group cursor-pointer" onclick="openModal('https://placehold.co/800x600/900/ffffff?text=Agencias+Autos', 'Agencias MG y Alfa Romeo - Calzada del Valle')">
+                        <img src="https://placehold.co/600x400/900/ffffff?text=Agencias+Autos" alt="Agencias" class="w-full h-64 object-cover">
+                        <div class="gallery-overlay absolute inset-0 bg-primario bg-opacity-90 flex flex-col items-center justify-center p-6 text-center">
+                            <h3 class="text-xl text-white font-bold">Agencias MG / Alfa Romeo</h3>
+                            <p class="text-secundario text-sm mt-2">Acabados, plafones y tablarroca</p>
+                            <p class="text-gray-300 text-xs mt-1">Ubicación: Calzada del Valle</p>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="gallery-item" data-category="industrial">
+                    <div class="bg-gray-100 rounded-lg overflow-hidden relative group cursor-pointer" onclick="openModal('https://placehold.co/800x600/666/ffffff?text=Distrito+Armida', 'Hotel Distrito Armida - Obra Civil')">
+                        <img src="https://placehold.co/600x400/666/ffffff?text=Distrito+Armida" alt="Distrito Armida" class="w-full h-64 object-cover">
+                        <div class="gallery-overlay absolute inset-0 bg-primario bg-opacity-90 flex flex-col items-center justify-center p-6 text-center">
+                            <h3 class="text-xl text-white font-bold">Hotel Distrito Armida</h3>
+                            <p class="text-secundario text-sm mt-2">Adecuación de cubos y renivelación</p>
+                            <p class="text-gray-300 text-xs mt-1">Cliente: GM CAPITAL</p>
                         </div>
                     </div>
                 </div>
@@ -285,95 +251,75 @@
         </div>
     </section>
 
-    <!-- Sección Contacto -->
     <section id="contacto" class="py-20 bg-primario text-white">
         <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16">
-            <!-- Columna de Información -->
             <div>
-                <h2 class="text-4xl font-bold mb-6">Iniciemos su Próximo Proyecto</h2>
-                <p class="text-lg text-gray-300 mb-8">Póngase en contacto con nuestro equipo de ingeniería para discutir las necesidades de su proyecto. Estamos listos para brindarle soluciones eficientes y seguras.</p>
-                <div class="space-y-4">
-                    <div class="flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-secundario mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.206" /></svg>
-                        <span class="text-gray-200">fermor64@hotmail.com</span>
+                <h2 class="text-4xl font-bold mb-6">Contáctanos</h2>
+                <p class="text-lg text-gray-300 mb-8">Estamos listos para construir tu próximo proyecto.</p>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="text-secundario font-bold mb-1">Razón Social</h4>
+                        [cite_start]<p>Constructora Badillo Hidalgo S.A. de C.V. [cite: 1032]</p>
                     </div>
-                    <div class="flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-secundario mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                        <span class="text-gray-200">(833) 462-9999 | (833) 174-3431</span>
+                    <div>
+                        <h4 class="text-secundario font-bold mb-1">Dirección</h4>
+                        <p>Francisco Zarco 940, Monterrey Centro, C.P. [cite_start]64000, Monterrey, N.L. [cite: 1034, 1035]</p>
                     </div>
-                    <div class="flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-secundario mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                        <span class="text-gray-200">Ignacio Zaragoza No. 207 Sur, Zona Centro, Tampico, Tamps.</span>
+                    <div>
+                        <h4 class="text-secundario font-bold mb-1">Contacto Directo</h4>
+                        <p class="flex items-center gap-2">
+                            [cite_start]<span>📱</span> Cel: 81 1017 7393 [cite: 1036]
+                        </p>
+                        <p class="flex items-center gap-2 mt-2">
+                            [cite_start]<span>✉️</span> proyectos.bahi@gmail.com [cite: 1036]
+                        </p>
                     </div>
                 </div>
             </div>
             
-            <!-- Columna de Formulario -->
-            <div class="bg-white p-8 rounded-lg shadow-2xl">
+            <div class="bg-white text-gray-800 p-8 rounded-lg shadow-2xl">
                 <form action="#" method="POST">
                     <div class="mb-4">
-                        <label for="name" class="block text-gray-700 font-medium mb-2">Nombre Completo</label>
-                        <input type="text" id="name" name="name" class="w-full px-4 py-2 border rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-secundario" required>
+                        <label class="block font-medium mb-2">Nombre</label>
+                        <input type="text" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-secundario">
                     </div>
                     <div class="mb-4">
-                        <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
-                        <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-secundario" required>
+                        <label class="block font-medium mb-2">Correo</label>
+                        <input type="email" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-secundario">
                     </div>
                     <div class="mb-4">
-                        <label for="phone" class="block text-gray-700 font-medium mb-2">Teléfono</label>
-                        <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-secundario">
+                        <label class="block font-medium mb-2">Mensaje</label>
+                        <textarea rows="4" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-secundario"></textarea>
                     </div>
-                    <div class="mb-4">
-                        <label for="message" class="block text-gray-700 font-medium mb-2">Mensaje</label>
-                        <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-secundario" required></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-secundario text-white text-lg font-semibold px-8 py-3 rounded-lg hover:bg-orange-600 transition duration-300">
-                        Enviar Consulta
-                    </button>
+                    <button type="submit" class="w-full bg-secundario text-white font-bold py-3 rounded hover:bg-teal-600 transition">Enviar Mensaje</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-gray-400 py-12">
-        <div class="container mx-auto px-6 text-center">
-            <p class="text-2xl font-bold text-white mb-2">MMR <span class="text-secundario">CONSTRUCCIONES</span> S.A. de C.V.</p>
-            <p>&copy; <span id="currentYear"></span> MMR Construcciones. Todos los derechos reservados.</p>
-        </div>
+    <footer class="bg-gray-900 text-gray-500 py-8 text-center">
+        <p>&copy; <span id="year"></span> BAHI Construcción. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Modal (Lightbox) para Galería -->
-    <div id="galleryModal" class="modal fixed inset-0 z-50 bg-black bg-opacity-80 items-center justify-center p-4">
-        <div class="modal-content bg-white p-4 rounded-lg shadow-2xl relative max-w-4xl max-h-full">
-            <!-- Botón de Cerrar -->
-            <button onclick="closeModal()" class="absolute -top-4 -right-4 bg-white text-primario rounded-full h-10 w-10 flex items-center justify-center text-2xl font-bold z-10">&times;</button>
-            
-            <!-- Imagen -->
-            <img id="modalImage" src="" alt="Proyecto" class="max-w-full max-h-[80vh] object-contain mx-auto">
-            
-            <!-- Título -->
-            <h3 id="modalTitle" class="text-2xl font-semibold text-primario text-center mt-4"></h3>
+    <div id="galleryModal" class="modal fixed inset-0 z-50 bg-black bg-opacity-90 items-center justify-center p-4">
+        <div class="modal-content bg-white p-2 rounded relative max-w-4xl w-full">
+            <button onclick="closeModal()" class="absolute -top-10 right-0 text-white text-3xl">&times;</button>
+            <img id="modalImage" src="" class="w-full h-auto max-h-[80vh] object-contain mx-auto">
+            <h3 id="modalTitle" class="text-xl font-bold text-primario text-center mt-4 p-4"></h3>
         </div>
     </div>
 
-
     <script>
-        // --- Lógica para el año actual en el Footer ---
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        document.getElementById('year').textContent = new Date().getFullYear();
 
-        // --- Lógica para la Galería de Proyectos ---
         const galleryGrid = document.getElementById('gallery-grid');
         const galleryItems = galleryGrid.getElementsByClassName('gallery-item');
-        const filterButtons = document.getElementById('filter-buttons').getElementsByClassName('filter-btn');
+        const filterButtons = document.querySelectorAll('.filter-btn');
 
-        // Mostrar todos los proyectos al cargar la página
-        window.onload = () => {
-            filterGallery('all');
-        };
+        window.onload = () => filterGallery('all');
 
         function filterGallery(category) {
-            // Mostrar u ocultar items
             for (let item of galleryItems) {
                 if (category === 'all' || item.dataset.category === category) {
                     item.classList.add('show');
@@ -381,18 +327,15 @@
                     item.classList.remove('show');
                 }
             }
-            
-            // Actualizar estilo del botón activo
-            for (let btn of filterButtons) {
-                if (btn.getAttribute('onclick') === `filterGallery('${category}')`) {
+            filterButtons.forEach(btn => {
+                if (btn.getAttribute('onclick').includes(category)) {
                     btn.classList.add('active');
                 } else {
                     btn.classList.remove('active');
                 }
-            }
+            });
         }
 
-        // --- Lógica del Modal (Lightbox) ---
         const modal = document.getElementById('galleryModal');
         const modalImage = document.getElementById('modalImage');
         const modalTitle = document.getElementById('modalTitle');
@@ -401,21 +344,17 @@
             modalImage.src = imgSrc;
             modalTitle.textContent = title;
             modal.classList.add('open');
-            document.body.style.overflow = 'hidden'; // Evitar scroll del fondo
+            document.body.style.overflow = 'hidden';
         }
 
         function closeModal() {
             modal.classList.remove('open');
-            document.body.style.overflow = 'auto'; // Restaurar scroll
+            document.body.style.overflow = 'auto';
         }
-        
-        // Cerrar modal al hacer clic fuera de la imagen
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                closeModal();
-            }
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
         });
     </script>
-
 </body>
 </html>
