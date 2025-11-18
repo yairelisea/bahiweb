@@ -25,15 +25,11 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
     color: var(--color-primario);
     border-color: var(--color-acento);
 }
-.filter-btn:not(.active):hover {
-    background-color: var(--color-acento);
-    color: var(--color-primario);
-    border-color: var(--color-acento);
-}
+.filter-btn:not(.active):hover { background-color: #f3f4f6; }
 
 /* Animaciones de galería */
 .gallery-item { display: none; animation: fadeIn 0.5s ease; }
-.gallery-item.show { display: none; }
+.gallery-item.show { display: block; }
 @keyframes fadeIn {
     from { opacity: 0; transform: scale(0.95); }
     to { opacity: 1; transform: scale(1); }
