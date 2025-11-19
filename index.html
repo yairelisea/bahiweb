@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-</head>
+</head> 
 <body class="text-gray-800">
 
     <header class="bg-white shadow-md sticky top-0 z-50">
@@ -116,88 +116,90 @@
             <h2 class="text-4xl font-bold text-center text-primario mb-4">Nuestros Proyectos</h2>
             <p class="text-center text-lg text-gray-600 mb-12">Experiencia comprobada en desarrollos verticales, industriales y comerciales.</p>
 
-            <div id="filter-buttons" class="flex flex-wrap justify-center gap-4 mb-12">
-                <button class="filter-btn active px-6 py-2 rounded-full font-semibold border border-gray-300" onclick="filterGallery('all')">Todos</button>
-                <button class="filter-btn px-6 py-2 rounded-full font-medium border border-gray-300" onclick="filterGallery('vertical')">Vertical / Residencial</button>
-                <button class="filter-btn px-6 py-2 rounded-full font-medium border border-gray-300" onclick="filterGallery('industrial')">Industrial / Comercial</button>
-                <button class="filter-btn px-6 py-2 rounded-full font-medium border border-gray-300" onclick="filterGallery('interiores')">Interiores / Corporativo</button>
+            <!-- Filtros de la galería -->
+            <div id="filters" class="flex flex-wrap justify-center gap-4 mb-12">
+                <button class="filter-btn active px-6 py-2 rounded-full font-semibold" data-filter="all">Todos</button>
+                <button class="filter-btn px-6 py-2 rounded-full font-medium border border-gray-300" data-filter="vertical">Vertical / Residencial</button>
+                <button class="filter-btn px-6 py-2 rounded-full font-medium border border-gray-300" data-filter="industrial">Industrial / Comercial</button>
+                <button class="filter-btn px-6 py-2 rounded-full font-medium border border-gray-300" data-filter="interiores">Interiores / Corporativo</button>
             </div>
 
-            <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Galería de Proyectos -->
+            <div id="gallery" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                <div class="gallery-item" data-category="vertical">
-                    <div class="bg-gray-100 rounded-lg overflow-hidden relative group cursor-pointer" onclick="openModal('https://placehold.co/800x600/1e293b/ffffff?text=Torre+Kyo+Constella', 'Torre Kyo Constella - Tablarroca y Acabados')">
+                <!-- Item 1 -->
+                <div class="gallery-item show" data-category="vertical" data-img-src="https://placehold.co/800x600/1e293b/ffffff?text=Torre+Kyo+Constella" data-title="Torre Kyo Constella" data-description="Tablarroca, Carpintería y Acabados. Cliente: Koinox Developers.">
+                    <div class="bg-gray-100 rounded-lg overflow-hidden relative group cursor-pointer">
                         <img src="https://placehold.co/600x400/1e293b/ffffff?text=Torre+Kyo+Constella" alt="Torre Kyo" class="w-full h-64 object-cover">
-                        <div class="gallery-overlay absolute inset-0 bg-primario bg-opacity-90 flex flex-col items-center justify-center p-6 text-center">
+                        <div class="gallery-overlay absolute inset-0 bg-primario bg-opacity-80 flex flex-col items-center justify-center p-6 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <h3 class="text-xl text-white font-bold">Torre Kyo Constella</h3>
                             <p class="text-secundario text-sm mt-2">Tablarroca, Carpintería y Acabados</p>
-                            <p class="text-gray-300 text-xs mt-1">Cliente: Koinox Developers</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="gallery-item" data-category="industrial">
-                    <div class="bg-gray-100 rounded-lg overflow-hidden relative group cursor-pointer" onclick="openModal('https://placehold.co/800x600/fbbf24/000000?text=Nave+Garcia', 'Nave Industrial García - Obra Civil')">
+                <!-- Item 2 -->
+                <div class="gallery-item show" data-category="industrial" data-img-src="https://placehold.co/800x600/fbbf24/000000?text=Nave+Garcia" data-title="Nave Industrial García" data-description="Obra civil, exteriores y acabados. Cliente: Robertson Industries.">
+                    <div class="bg-gray-100 rounded-lg overflow-hidden relative group cursor-pointer">
                         <img src="https://placehold.co/600x400/fbbf24/000000?text=Nave+Garcia" alt="Nave García" class="w-full h-64 object-cover">
-                        <div class="gallery-overlay absolute inset-0 bg-primario bg-opacity-90 flex flex-col items-center justify-center p-6 text-center">
+                        <div class="gallery-overlay absolute inset-0 bg-primario bg-opacity-80 flex flex-col items-center justify-center p-6 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <h3 class="text-xl text-white font-bold">Nave Industrial García</h3>
                             <p class="text-secundario text-sm mt-2">Obra civil, exteriores y acabados</p>
-                            <p class="text-gray-300 text-xs mt-1">Cliente: Robertson Industries</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="gallery-item" data-category="vertical">
-                    <div class="bg-gray-100 rounded-lg overflow-hidden relative group cursor-pointer" onclick="openModal('https://placehold.co/800x600/00bfa5/ffffff?text=Deptos+Aluna', 'Departamentos Aluna - Albañilerías y Acabados')">
+                <!-- Item 3 -->
+                <div class="gallery-item show" data-category="vertical" data-img-src="https://placehold.co/800x600/00bfa5/ffffff?text=Deptos+Aluna" data-title="Departamentos Aluna" data-description="Albañilerías, plafones y áreas comunes. Gerencia Belive.">
+                    <div class="bg-gray-100 rounded-lg overflow-hidden relative group cursor-pointer">
                         <img src="https://placehold.co/600x400/00bfa5/ffffff?text=Deptos+Aluna" alt="Aluna" class="w-full h-64 object-cover">
-                        <div class="gallery-overlay absolute inset-0 bg-primario bg-opacity-90 flex flex-col items-center justify-center p-6 text-center">
+                        <div class="gallery-overlay absolute inset-0 bg-primario bg-opacity-80 flex flex-col items-center justify-center p-6 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <h3 class="text-xl text-white font-bold">Departamentos Aluna</h3>
                             <p class="text-secundario text-sm mt-2">Albañilerías, plafones y áreas comunes</p>
-                            <p class="text-gray-300 text-xs mt-1">Gerencia Belive</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="gallery-item" data-category="interiores">
-                    <div class="bg-gray-100 rounded-lg overflow-hidden relative group cursor-pointer" onclick="openModal('https://placehold.co/800x600/555/ffffff?text=Torre+Malva', 'Oficinas Torre Malva - 7,500 m2')">
+                <!-- Item 4 -->
+                <div class="gallery-item show" data-category="interiores" data-img-src="https://placehold.co/800x600/555/ffffff?text=Torre+Malva" data-title="Oficinas Torre Malva" data-description="7,500 m² de Obra Civil y Acabados. Cliente: GM CAPITAL.">
+                    <div class="bg-gray-100 rounded-lg overflow-hidden relative group cursor-pointer">
                         <img src="https://placehold.co/600x400/555/ffffff?text=Torre+Malva" alt="Torre Malva" class="w-full h-64 object-cover">
-                        <div class="gallery-overlay absolute inset-0 bg-primario bg-opacity-90 flex flex-col items-center justify-center p-6 text-center">
+                        <div class="gallery-overlay absolute inset-0 bg-primario bg-opacity-80 flex flex-col items-center justify-center p-6 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <h3 class="text-xl text-white font-bold">Oficinas Torre Malva</h3>
                             <p class="text-secundario text-sm mt-2">7,500 m² de Obra Civil y Acabados</p>
-                            <p class="text-gray-300 text-xs mt-1">Cliente: GM CAPITAL</p>
                         </div>
                     </div>
                 </div>
 
-                 <div class="gallery-item" data-category="interiores">
-                    <div class="bg-gray-100 rounded-lg overflow-hidden relative group cursor-pointer" onclick="openModal('https://placehold.co/800x600/333/ffffff?text=Cosmocel', 'Oficinas RH Cosmocel - Interpuerto')">
+                <!-- Item 5 -->
+                 <div class="gallery-item show" data-category="interiores" data-img-src="https://placehold.co/800x600/333/ffffff?text=Cosmocel" data-title="Oficinas RH Cosmocel" data-description="Terracerías, cimentación y acabados. Ubicación: Interpuerto Monterrey.">
+                    <div class="bg-gray-100 rounded-lg overflow-hidden relative group cursor-pointer">
                         <img src="https://placehold.co/600x400/333/ffffff?text=Cosmocel" alt="Cosmocel" class="w-full h-64 object-cover">
-                        <div class="gallery-overlay absolute inset-0 bg-primario bg-opacity-90 flex flex-col items-center justify-center p-6 text-center">
+                        <div class="gallery-overlay absolute inset-0 bg-primario bg-opacity-80 flex flex-col items-center justify-center p-6 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <h3 class="text-xl text-white font-bold">Oficinas RH Cosmocel</h3>
                             <p class="text-secundario text-sm mt-2">Terracerías, cimentación y acabados</p>
-                            <p class="text-gray-300 text-xs mt-1">Interpuerto Monterrey</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="gallery-item" data-category="industrial">
-                    <div class="bg-gray-100 rounded-lg overflow-hidden relative group cursor-pointer" onclick="openModal('https://placehold.co/800x600/900/ffffff?text=Agencias+Autos', 'Agencias MG y Alfa Romeo - Calzada del Valle')">
+                <!-- Item 6 -->
+                <div class="gallery-item show" data-category="industrial" data-img-src="https://placehold.co/800x600/900/ffffff?text=Agencias+Autos" data-title="Agencias MG / Alfa Romeo" data-description="Acabados, plafones y tablarroca. Ubicación: Calzada del Valle.">
+                    <div class="bg-gray-100 rounded-lg overflow-hidden relative group cursor-pointer">
                         <img src="https://placehold.co/600x400/900/ffffff?text=Agencias+Autos" alt="Agencias" class="w-full h-64 object-cover">
-                        <div class="gallery-overlay absolute inset-0 bg-primario bg-opacity-90 flex flex-col items-center justify-center p-6 text-center">
+                        <div class="gallery-overlay absolute inset-0 bg-primario bg-opacity-80 flex flex-col items-center justify-center p-6 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <h3 class="text-xl text-white font-bold">Agencias MG / Alfa Romeo</h3>
                             <p class="text-secundario text-sm mt-2">Acabados, plafones y tablarroca</p>
-                            <p class="text-gray-300 text-xs mt-1">Ubicación: Calzada del Valle</p>
                         </div>
                     </div>
                 </div>
 
-                 <div class="gallery-item" data-category="industrial">
-                    <div class="bg-gray-100 rounded-lg overflow-hidden relative group cursor-pointer" onclick="openModal('https://placehold.co/800x600/666/ffffff?text=Distrito+Armida', 'Hotel Distrito Armida - Obra Civil')">
+                <!-- Item 7 -->
+                 <div class="gallery-item show" data-category="industrial" data-img-src="https://placehold.co/800x600/666/ffffff?text=Distrito+Armida" data-title="Hotel Distrito Armida" data-description="Adecuación de cubos y renivelación. Cliente: GM CAPITAL.">
+                    <div class="bg-gray-100 rounded-lg overflow-hidden relative group cursor-pointer">
                         <img src="https://placehold.co/600x400/666/ffffff?text=Distrito+Armida" alt="Distrito Armida" class="w-full h-64 object-cover">
-                        <div class="gallery-overlay absolute inset-0 bg-primario bg-opacity-90 flex flex-col items-center justify-center p-6 text-center">
+                        <div class="gallery-overlay absolute inset-0 bg-primario bg-opacity-80 flex flex-col items-center justify-center p-6 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <h3 class="text-xl text-white font-bold">Hotel Distrito Armida</h3>
                             <p class="text-secundario text-sm mt-2">Adecuación de cubos y renivelación</p>
-                            <p class="text-gray-300 text-xs mt-1">Cliente: GM CAPITAL</p>
                         </div>
                     </div>
                 </div>
@@ -205,7 +207,7 @@
             </div>
         </div>
     </section>
-
+    
     <section id="contacto" class="py-20 bg-primario text-white">
         <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16">
             <div>
@@ -257,59 +259,24 @@
         <p>&copy; <span id="year"></span> BAHI Construcción. Todos los derechos reservados.</p>
     </footer>
 
-    <div id="galleryModal" class="modal fixed inset-0 z-50 bg-black bg-opacity-90 items-center justify-center p-4">
-        <div class="modal-content bg-white p-2 rounded relative max-w-4xl w-full">
-            <button onclick="closeModal()" class="absolute -top-10 right-0 text-white text-3xl">&times;</button>
-            <img id="modalImage" src="" class="w-full h-auto max-h-[80vh] object-contain mx-auto">
-            <h3 id="modalTitle" class="text-xl font-bold text-primario text-center mt-4 p-4"></h3>
+    <!-- MODAL (POPUP) PARA PROYECTOS -->
+    <div id="project-modal" class="modal fixed inset-0 z-50 bg-black bg-opacity-70 items-center justify-center p-4">
+        <div class="modal-content bg-white rounded-lg shadow-2xl w-full max-w-3xl mx-auto overflow-hidden relative">
+            <!-- Botón para cerrar el modal -->
+            <button id="close-modal-btn" class="absolute top-3 right-4 text-gray-500 hover:text-gray-900 text-4xl font-light z-10">&times;</button>
+            
+            <div class="md:flex">
+                <div class="md:w-1/2">
+                    <img id="modal-img" src="" alt="Imagen del Proyecto" class="w-full h-full object-cover">
+                </div>
+                <div class="md:w-1/2 p-8">
+                    <h3 id="modal-title" class="text-2xl font-bold mb-4 text-primario"></h3>
+                    <p id="modal-description" class="text-gray-700"></p>
+                </div>
+            </div>
         </div>
     </div>
 
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        const galleryGrid = document.getElementById('gallery-grid');
-        const galleryItems = galleryGrid.getElementsByClassName('gallery-item');
-        const filterButtons = document.querySelectorAll('.filter-btn');
-
-        window.onload = () => filterGallery('all');
-
-        function filterGallery(category) {
-            for (let item of galleryItems) {
-                if (category === 'all' || item.dataset.category === category) {
-                    item.classList.add('show');
-                } else {
-                    item.classList.remove('show');
-                }
-            }
-            filterButtons.forEach(btn => {
-                if (btn.getAttribute('onclick').includes(category)) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-            });
-        }
-
-        const modal = document.getElementById('galleryModal');
-        const modalImage = document.getElementById('modalImage');
-        const modalTitle = document.getElementById('modalTitle');
-
-        function openModal(imgSrc, title) {
-            modalImage.src = imgSrc;
-            modalTitle.textContent = title;
-            modal.classList.add('open');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            modal.classList.remove('open');
-            document.body.style.overflow = 'auto';
-        }
-
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeModal();
-        });
-    </script>
+    <script src="js/portfolio.js"></script>
 </body>
 </html>

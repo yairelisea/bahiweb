@@ -23,6 +23,7 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
 .filter-btn.active {
     background-color: var(--color-acento);
     color: var(--color-primario);
+    border-color: transparent; /* Asegura que no haya borde en el botón activo */
 }
 .filter-btn:not(.active):hover {
     background-color: #f3f4f6; /* Un gris claro para el hover */
@@ -64,9 +65,7 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
 }
 
 /* Overlay */
-.gallery-overlay { opacity: 0; transition: opacity 0.3s ease; }
-.gallery-item .group:hover .gallery-overlay {
-    opacity: 1;
-}
+/* La opacidad del overlay ahora se controla con clases de Tailwind 'opacity-0' y 'group-hover:opacity-100' directamente en el HTML para mayor simplicidad */
+
 
 html { scroll-behavior: smooth; }
